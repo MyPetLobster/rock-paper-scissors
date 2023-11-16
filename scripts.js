@@ -17,7 +17,19 @@ function getComputerChoice() {
     return rockPaperScissors[index];
 }
 
-function round(playerSelection, computerSelection) {
+function getPlayerChoice() {
+    const choice = prompt("Pick rock, paper, or scissors.", "").toLowerCase();
+    if (choice !== "rock" && choice !== "paper" && choice != "scissors") {
+        return "Invalid input";
+    }
+    else {
+        return choice;
+    }
+}
+
+function round() {
+    const playerSelection = getPlayerChoice();
+    const computerSelection = getComputerChoice();
     if (playerSelection === "rock") {
         if (computerSelection === "rock") {
             return "Draw -- You both threw Rock";
@@ -46,20 +58,33 @@ function round(playerSelection, computerSelection) {
 }
 
 
-function getPlayerChoice() {
-    const choice = prompt("Pick rock, paper, or scissors.", "").toLowerCase();
-    if (choice !== "rock" && choice !== "paper" && choice != "scissors") {
-        return "Invalid input";
+function game() {
+    let playerWins = 0;
+    let computerWins = 0;
+    let rndCount = 1;
+    while (playerWins < 3 && computerWins < 3) {
+        let rndResults = round();
+        console.log(`Round ${rndCount}: ${rndResults}`);
+ 
+
+        if (rndResults.startsWith("You win")) {
+            playerWins += 1;
+        } else if (rndResults.startsWith("You lose")) {
+            computerWins += 1;
+        }
+
+        console.log(`You: ${playerWins}\nComputer: ${computerWins}\n`)
     }
-    else {
-        return choice;
+    
+    if (playerWins === 3) {
+        return "You win!!";
+    } else {
+        return "You lose!!";
     }
 }
 
-const playerChoice = getPlayerChoice();
-const computerChoice = getComputerChoice();
-
-const result = round(playerChoice, computerChoice);
+console.log(game());
 
 
-console.log(result);
+
+
