@@ -45,7 +45,7 @@ function game() {
     let computerWins = 0;
     let rndCount = 1;
 
-    alert("Best of five........bitchass.");
+    alert("Best of five!");
 
     // Play until one side wins three rounds
     while (playerWins < 3 && computerWins < 3) {
