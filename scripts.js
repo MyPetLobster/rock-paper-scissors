@@ -45,10 +45,11 @@ function game() {
     let computerWins = 0;
     let rndCount = 1;
 
+    alert("Best of five........bitchass.");
+
     // Play until one side wins three rounds
     while (playerWins < 3 && computerWins < 3) {
         let rndResults = round();
-        console.log(`Round ${rndCount}: ${rndResults}`);
 
         // Update scores based on the round results
         if (rndResults.startsWith("You win")) {
@@ -56,8 +57,9 @@ function game() {
         } else if (rndResults.startsWith("You lose")) {
             computerWins += 1;
         }
-
+        console.log(`Round ${rndCount}: ${rndResults}`);
         console.log(`You: ${playerWins}\nComputer: ${computerWins}\n`);
+        alert(`You: ${playerWins}\nComputer: ${computerWins}\n\nRound ${rndCount}: ${rndResults}`)
         rndCount += 1;
     }
 
@@ -66,4 +68,7 @@ function game() {
 }
 
 // Start the game and display the final result
-console.log(game());
+result = game();
+console.log(result);
+alert(result);
+
