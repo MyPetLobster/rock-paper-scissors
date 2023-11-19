@@ -1,9 +1,86 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+}
+
 body {
+  box-sizing: border-box;
+  font-size: 1.6rem;
+  background-color: aquamarine;
+}
+
+#main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.main-item {
+    margin: 10px;
+    padding: 20px;
+    border: 2px solid black;
+    display: flex;
+}
+
+
+
+#heading {
+    background-color: bisque;
+}
+#head-image {
+    background-color: brown;
+}
+#result {
+    background-color: green;
+}
+#scoreboard {
+    background-color: orange;
+}
+#selection {
+    background-color: yellowgreen;
+}
+#new-game {
+    background-color: gold;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 
+
+
+
     display: block;
+    width: auto;
     padding: 0;
     margin: 0;
 }
 
+#inner-box {
+    margin: auto;
+}
 .container {
     display: flex;
     flex-direction: column;
@@ -13,10 +90,26 @@ body {
     margin: 15px;
 }
 
+.main-heading {
+    border: 4px solid rgb(0, 255, 174);
+    width: 800px;
+    display: flex;
+    justify-content: space-around;
+}
 h1 {
     text-align: center;
 
     border: 2px solid black;
+}
+
+.heading-item {
+    justify-content: center;
+}
+
+
+
+img {
+    width: 100%;
 }
 
 .inner-item {
@@ -28,16 +121,37 @@ h1 {
     border: 2px solid green;
 }
 
+.main-item {
+    
+    margin: 25px;
+    border: 2px solid pink;
+    display: flex;
+    justify-content: space-between;
+}
+
 #selection {
     width: 350px;
-
+    
     border: 2px solid purple;
 }
 
+#scoreboard {
+    align-items: center;
+    justify-content: space-around;
+    height: 150px;
+    width: 600px;
+    
+}
+
 #head-image {
-    border: 2px solid aqua;
+    border: 6px solid rgb(21, 134, 255);
+    background-color: rgb(213, 126, 45);
+    width: 800px;
+    display: flex;
+    justify-content: space-between;
+
 }
 
 img {
     align-self: center;
-}
+} */
