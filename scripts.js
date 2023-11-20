@@ -2,7 +2,8 @@
 const rockPaperScissors = ['rock', 'paper', 'scissors'];
 
 // Global variable selectors
-const startGame = document.querySelector("#new-game");
+const resetGameScore = document.querySelector("#reset-score");
+
 const userScore = document.querySelector("#user-score");
 const computerScore = document.querySelector("#computer-score");
 const result = document.querySelector("#result");
@@ -30,6 +31,8 @@ function getComputerChoice() {
 function resetScore() {
     userScoreText.nodeValue = "You: 0";
     computerScoreText.nodeValue = "Super Computer: 0";
+    userCurrentScore = 0;
+    computerCurrentScore = 0;
 }
 // Reset Hands Function
 function resetHands() {
@@ -60,42 +63,77 @@ function updateHands (x, y) {
     }
 }
 
-function game() {
-    
-}
+const rockButton = document.querySelector("#rock-btn");
+const paperButton = document.querySelector("#paper-btn");
+const scissorsButton = document.querySelector("#scissors-btn");
 
+let userCurrentScore = 0;
+let computerCurrentScore = 0;
 
-function round() {
-    let userChoice = '';
+rockButton.addEventListener('click', () => game('rock'));
+paperButton.addEventListener('click', () => game('paper'))
+scissorsButton.addEventListener('click', () => game('scissors'))
 
-    // SHOW BUTTON FUNCTION?
+function game(selection) {
 
-    document.querySelector("#rock-btn").onclick = function() {
-        userChoice = 'rock';
-    }
-    document.querySelector("#paper-btn").onclick = function() {
-        userChoice = 'paper';
-    }
-    document.querySelector("#scissors-btn").onclick = function() {
-        userChoice = 'scissors';
-    }
-    let computerSelection = getComputerChoice();
-    if (playerSelection === computerSelection) {
+    resetHands()
+    computerSelection = getComputerChoice();
+
+    leftHand.src = `images/left-${selection}.png`;
+    rightHand.src = `images/right-${computerSelection}.png`;
+
+    if (selection === computerSelection) {
         // DRAW
-
+        resultText.nodeValue = "DRAW. Not bad."
     } else if (
-        (playerSelection === "rock" && computerSelection === "scissors") ||
-        (playerSelection === "paper" && computerSelection === "rock") ||
-        (playerSelection === "scissors" && computerSelection === "paper")
+        (selection === "rock" && computerSelection === "scissors") ||
+        (selection === "paper" && computerSelection === "rock") ||
+        (selection === "scissors" && computerSelection === "paper")
     ) {
         // PLAYER WINS
+        resultText.nodeValue = "you win.";
+        userCurrentScore += 1;
     } else {
         // COMPUTER WINS
+        resultText.nodeValue = "As we all expected. I WIN.";
+        computerCurrentScore += 1;
     }
+    updateScore(userCurrentScore, computerCurrentScore);
 }
 
+resetGameScore.addEventListener('click', () => resetScore());
 
-startGame.addEventListener('click', () => round());
+// function round() {
+//     let userChoice = '';
+
+//     // SHOW BUTTON FUNCTION?
+
+//     document.querySelector("#rock-btn").onclick = function() {
+//         userChoice = 'rock';
+//     }
+//     document.querySelector("#paper-btn").onclick = function() {
+//         userChoice = 'paper';
+//     }
+//     document.querySelector("#scissors-btn").onclick = function() {
+//         userChoice = 'scissors';
+//     }
+//     let computerSelection = getComputerChoice();
+//     if (playerSelection === computerSelection) {
+//         // DRAW
+
+//     } else if (
+//         (playerSelection === "rock" && computerSelection === "scissors") ||
+//         (playerSelection === "paper" && computerSelection === "rock") ||
+//         (playerSelection === "scissors" && computerSelection === "paper")
+//     ) {
+//         // PLAYER WINS
+//     } else {
+//         // COMPUTER WINS
+//     }
+// }
+
+
+
 
 
 // TESTS
