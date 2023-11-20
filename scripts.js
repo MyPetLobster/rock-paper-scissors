@@ -7,23 +7,53 @@ function getComputerChoice() {
     return rockPaperScissors[index];
 }
 
+// Global variable selectors
 const startGame = document.querySelector("#new-game");
-
 const userScore = document.querySelector("#user-score");
 const computerScore = document.querySelector("#computer-score");
+const result = document.querySelector("#result");
+const leftHand = document.querySelector("#image-left");
+const rightHand = document.querySelector("#image-right");
+
+
+const resultText = document.createTextNode("Best of luck...human");
 const userScoreText = document.createTextNode("You: 0");
 const computerScoreText = document.createTextNode("Super Computer: 0");
 
+// Append default state text nodes
+result.appendChild(resultText);
 userScore.appendChild(userScoreText);
 computerScore.appendChild(computerScoreText);
 
+// Update Score Function
 function updateScore(x, y) {
     userScoreText.nodeValue = `You: ${x}`;
     computerScoreText.nodeValue = `Super Computer: ${y}`;
 }
 
-window.addEventListener('load', () => updateScore(4, 5));
+// Update Hands Function
+function updateHands (x, y) {
+    if (x === 'rock') {
+        leftHand.src = "images/left-rock.png";
+    } else if (x === 'paper') {
+        leftHand.src = "images/left-paper.png";
+    } else if (x === 'scissors') {
+        leftHand.src = "images/left-scissors.png";
+    }
 
+    if (y === 'rock') {
+        rightHand.src = "images/right-rock.png";
+    } else if (y === 'paper') {
+        rightHand.src = "images/right-paper.png";
+    } else if (y === 'scissors') {
+        rightHand.src = "images/right-scissors.png";
+    }
+}
+
+
+// TESTS
+window.addEventListener('load', () => updateScore(4, 5));
+window.addEventListener('load', () => updateHands('paper', 'scissors'));
 
 
 // // Reset Score Function
