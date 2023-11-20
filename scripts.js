@@ -25,12 +25,23 @@ result.appendChild(resultText);
 userScore.appendChild(userScoreText);
 computerScore.appendChild(computerScoreText);
 
+
+// Reset Score Function 
+function resetScore() {
+    userScoreText.nodeValue = "You: 0";
+    computerScoreText.nodeValue = "Super Computer: 0";
+}
+// Reset Hands Function
+function resetHands() {
+    leftHand.src = "images/empty-hand.png";
+    rightHand.src = "images/empty-hand.png";
+}
+
 // Update Score Function
 function updateScore(x, y) {
     userScoreText.nodeValue = `You: ${x}`;
     computerScoreText.nodeValue = `Super Computer: ${y}`;
 }
-
 // Update Hands Function
 function updateHands (x, y) {
     if (x === 'rock') {
@@ -54,6 +65,13 @@ function updateHands (x, y) {
 // TESTS
 window.addEventListener('load', () => updateScore(4, 5));
 window.addEventListener('load', () => updateHands('paper', 'scissors'));
+window.addEventListener('load', () => resetScore());
+window.addEventListener('load', () => resetHands());
+
+
+
+
+
 
 
 // // Reset Score Function
