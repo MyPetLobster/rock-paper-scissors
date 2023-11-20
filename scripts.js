@@ -7,6 +7,7 @@ const resetGameScore = document.querySelector("#reset-score");
 const userScore = document.querySelector("#user-score");
 const computerScore = document.querySelector("#computer-score");
 const result = document.querySelector("#result");
+result.style.textAlign = "center";
 const leftHand = document.querySelector("#image-left");
 const rightHand = document.querySelector("#image-right");
 

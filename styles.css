@@ -13,7 +13,8 @@ html {
 body {
   box-sizing: border-box;
   font-size: 1.6rem;
-  background-color: rgb(229, 131, 236);
+  color: #063250;
+  background-color: rgb(80, 173, 235);
   font-family: "Rubik Mono One";
 }
 #main-container {
@@ -57,12 +58,12 @@ h1 {
 }
 
 #head-image {
-    background-color: brown;
+    background-color: rgb(222, 113, 230);
     display: flex;
     justify-content: space-between;
     padding: 0px;
     border-radius: 45px;
-    box-shadow: rgb(85, 91, 255) 0px 0px 0px 3px, rgb(31, 193, 27) 0px 0px 0px 6px, rgb(255, 217, 19) 0px 0px 0px 9px, rgb(255, 156, 85) 0px 0px 0px 12px, rgb(255, 85, 85) 0px 0px 0px 15px;
+    box-shadow: rgb(80, 173, 235) 0px 0px 0px 3px, rgb(148, 220, 81) 0px 0px 0px 6px, rgb(186, 97, 195) 0px 0px 0px 9px,rgb(210, 63, 88) 0px 0px 0px 12px, rgb(167, 239, 100) 0px 0px 0px 17px;
 }
 .img {
     max-width: 50%;
@@ -123,19 +124,20 @@ footer {
 
 
 button {
+  display: flex;
+  justify-content: center;
   width: 30%;
   background-color: #fbeee0;
-  border: 2px solid #422800;
-  border-radius: 25px;
-  box-shadow: #422800 4px 4px 0 0;
-  color: #422800;
+  border-radius: 18px;
+  border: 2px solid rgb(210, 63, 88);
+  box-shadow: rgb(210, 63, 88) 4px 4px 0 0;
+  color: #063250;
   cursor: pointer;
-  display: inline-block;
+  font-family: "Rubik Mono One";
   font-weight: 600;
-  font-size: 18px;
+  font-size: 16px;
   padding: 0 18px;
   line-height: 50px;
-  text-align: center;
   text-decoration: none;
   user-select: none;
   -webkit-user-select: none;
@@ -150,6 +152,32 @@ button:active {
   box-shadow: #422800 2px 2px 0 0;
   transform: translate(2px, 2px);
 }
+
+#rock-btn {
+    border: 2px solid rgb(112, 210, 63);
+    box-shadow: rgb(112, 210, 63) 4px 4px 0 0;
+}
+#rock-btn:active {
+    box-shadow: rgb(112, 210, 63) 2px 2px 0 0;
+}
+
+#paper-btn {
+    border: 2px solid rgb(29, 89, 153);
+    box-shadow: rgb(29, 89, 153) 4px 4px 0 0;
+}
+#paper-btn:active {
+    box-shadow: rgb(29, 89, 153) 2px 2px 0 0;
+}
+
+#scissors-btn {
+    border: 2px solid rgb(159, 63, 210);
+    box-shadow: rgb(159, 63, 210) 4px 4px 0 0;
+}
+#scissors-btn:active {
+    box-shadow: rgb(159, 63, 210) 2px 2px 0 0;
+}
+
+
 
 @media (min-width: 768px) {
   button {
