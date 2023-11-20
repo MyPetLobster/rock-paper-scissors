@@ -12,6 +12,11 @@ const leftHand = document.querySelector("#image-left");
 const rightHand = document.querySelector("#image-right");
 
 
+const headingRock = document.querySelector("#heading-rock");
+const headingPaper = document.querySelector("#heading-paper");
+const headingScissors = document.querySelector("#heading-scissors");
+
+
 const resultText = document.createTextNode("");
 const userScoreText = document.createTextNode("You: 0");
 const computerScoreText = document.createTextNode("Super Computer: 0");
@@ -55,6 +60,9 @@ function resetScore() {
     computerCurrentScore = 0;
     updateScore(0,0);
     resetHands();
+    headingRock.style.color = "#063250";
+    headingPaper.style.color = "#063250";
+    headingScissors.style.color = "#063250";
     resultText.nodeValue = "";
     result.style.fontSize = "12px";
     let msg = "I like when you reset the score out of frustration. Just know that a computer never forgets ;)";
@@ -182,6 +190,37 @@ function game(selection) {
     resetHands()
     computerSelection = getComputerChoice();
 
+    headingRock.style.color = "rgb(245, 165, 251)";
+    headingPaper.style.color = "rgb(245, 165, 251)";
+    headingScissors.style.color = "rgb(245, 165, 251)";
+
+    if (selection === 'rock') {
+        headingRock.style.color = "rgb(167, 239, 100)";
+    } else if (selection === 'paper') {
+        headingPaper.style.color = "rgb(167, 239, 100)";
+    } else {
+        headingScissors.style.color = "rgb(167, 239, 100)";
+    };
+
+    if (computerSelection === 'rock') {
+        headingRock.style.color = "rgb(171, 60, 185)";
+    } else if (computerSelection === 'paper') {
+        headingPaper.style.color = "rgb(171, 60, 185)";
+    } else {
+        headingScissors.style.color = "rgb(171, 60, 185)";
+    };
+
+    if (computerSelection === selection) {
+        if (computerSelection === 'rock') {
+            headingRock.style.color = "#063250";
+        } else if (computerSelection === 'paper') {
+            headingPaper.style.color = "#063250";
+        } else {
+            headingScissors.style.color = "#063250";
+        };
+    }
+
+
     leftHand.src = `images/left-${selection}.png`;
     rightHand.src = `images/right-${computerSelection}.png`;
 
@@ -205,6 +244,16 @@ function game(selection) {
 }
 
 resetGameScore.addEventListener('click', () => resetScore());
+
+
+
+
+
+
+
+
+
+
 
 // function round() {
 //     let userChoice = '';
