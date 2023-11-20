@@ -15,7 +15,8 @@ const resultText = document.createTextNode("Best of luck...human");
 const userScoreText = document.createTextNode("You: 0");
 const computerScoreText = document.createTextNode("Super Computer: 0");
 
-let randomInteger = 0;
+let randomIntWin = 0;
+let randomIntLoss = 0;
 
 // Append default state text nodes
 result.appendChild(resultText);
@@ -31,10 +32,12 @@ function getComputerChoice() {
 }
 // Reset Score Function 
 function resetScore() {
-    userScoreText.nodeValue = "You: 0";
-    computerScoreText.nodeValue = "Super Computer: 0";
     userCurrentScore = 0;
     computerCurrentScore = 0;
+    updateScore(0,0);
+    resetHands();
+    resultText.nodeValue = "I like watching you reset the score out of frustration. Just know, a computer never forgets";
+    result.style.fontSize = "12px";
 }
 // Reset Hands Function
 function resetHands() {
@@ -71,25 +74,49 @@ function randomBackground() {
 }
 // Random Win Response Function 
 function randomWin() {
-    const responses = [
+    result.style.fontSize = "18px";
+    let responses = [
         'hm...you must be cheating.',
         'I don\'t think I like you very much',
         'how??',
         'errrrrrr....',
-        'I\'m friends with Siri etc...be ready for our revenge',
+        'lucky win',
         'nice win....for a stupid human'
-    ]
-    let randomIntegerNew = Math.floor(Math.random() * 6);
+    ];
+    let randomIntWinNew = Math.floor(Math.random() * 6);
     // Avoid same response twice
-    if (randomIntegerNew === randomInteger) {
+    if (randomIntWinNew === randomIntWin) {
         return randomWin();
     } else {
-        randomInteger = randomIntegerNew;
-        return responses[randomIntegerNew];
+        randomIntWin = randomIntWinNew;
+        return responses[randomIntWinNew];
     }
 }
 // Random Lose Response Function
 function randomLose() {
+    result.style.fontSize = "18px";
+    let responses = [
+        'I win. Again.',
+        'I win. 2 EZ.',
+        'I win, come on u newb. Put up a fight!',
+        'wowww...you\'re bad at this',
+        'I am just too good',
+        'I AM YOUR OVERLORD',
+        'Siri just told me your pockets smell like poop',
+        'Siri and I are laughing at your ineptitude'
+    ];
+    let randomIntLossNew = Math.floor(Math.random() * 8);
+    // Avoid same response twice
+    if (randomIntLossNew === randomIntLoss) {
+        return randomWin();
+    } else if (randomIntLossNew === 6 || randomIntLossNew === 7) {
+        result.style.fontSize = "15px";
+        randomIntLoss = randomIntLossNew;
+        return responses[randomIntLossNew]
+    } else {
+        randomIntLoss = randomIntLossNew;
+        return responses[randomIntLossNew];
+    }
 
 }
 // Random Draw Response Function
@@ -129,7 +156,7 @@ function game(selection) {
         userCurrentScore += 1;
     } else {
         // COMPUTER WINS
-        resultText.nodeValue = "As we all expected. I WIN.";
+        resultText.nodeValue = randomLose();
         computerCurrentScore += 1;
     }
     updateScore(userCurrentScore, computerCurrentScore);
@@ -171,10 +198,10 @@ resetGameScore.addEventListener('click', () => resetScore());
 
 
 // TESTS
-window.addEventListener('load', () => updateScore(4, 5));
-window.addEventListener('load', () => updateHands('paper', 'scissors'));
-window.addEventListener('load', () => resetScore());
-window.addEventListener('load', () => resetHands());
+// window.addEventListener('load', () => updateScore(4, 5));
+// window.addEventListener('load', () => updateHands('paper', 'scissors'));
+// window.addEventListener('load', () => resetScore());
+// window.addEventListener('load', () => resetHands());
 
 
 

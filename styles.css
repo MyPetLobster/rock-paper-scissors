@@ -77,9 +77,10 @@ h1 {
 }
 #result {
     /* background-color: green; */
+    width: 400px;
     margin-top: 35px;
     justify-content: center;
-    font-size: 3rem;
+    font-size: 2rem;
 }
 #scoreboard {
     /* background-color: orange; */
