@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Mono+One&display=swap');
+
 *,
 *::before,
 *::after {
@@ -5,51 +7,146 @@
   padding: 0;
   box-sizing: inherit;
 }
-
 html {
   font-size: 62.5%;
 }
-
 body {
   box-sizing: border-box;
   font-size: 1.6rem;
-  background-color: aquamarine;
+  background-color: rgb(229, 131, 236);
+  font-family: "Rubik Mono One";
 }
-
 #main-container {
     display: flex;
     flex-direction: column;
+    width: auto;
     align-items: center;
+    justify-content: center;
+    
+}
+#inner-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 100px;
+}
+
+#heading {
+    /* background-color: bisque; */
+    display: flex;
+    width: 100%;
+    justify-content:space-around;
+    top: 0;
+    position: fixed;
+    background-color: rgb(167, 239, 100);
+}
+
+h1 {
+    font-size: 2.5rem;
 }
 
 .main-item {
     margin: 10px;
-    padding: 20px;
-    border: 2px solid black;
+    padding: 5px;
+    /* border: 2px solid black; */
     display: flex;
+    width: 85%;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
 }
 
-
-
-#heading {
-    background-color: bisque;
-}
 #head-image {
     background-color: brown;
+    display: flex;
+    justify-content: space-between;
+    padding: 0px;
+    border-radius: 45px;
+    box-shadow: rgb(85, 91, 255) 0px 0px 0px 3px, rgb(31, 193, 27) 0px 0px 0px 6px, rgb(255, 217, 19) 0px 0px 0px 9px, rgb(255, 156, 85) 0px 0px 0px 12px, rgb(255, 85, 85) 0px 0px 0px 15px;
+}
+.img {
+    max-width: 50%;
+    max-height: 100%;
+    /* border: 2px solid black; */
+}
+#image-left {
+    border-bottom-left-radius: 45px;
+}
+#image-right {
+    border-bottom-right-radius: 45px;
 }
 #result {
-    background-color: green;
+    /* background-color: green; */
+    margin-top: 35px;
+    justify-content: center;
+    font-size: 3rem;
 }
 #scoreboard {
-    background-color: orange;
+    /* background-color: orange; */
+    justify-content: space-around;
+    font-size: 2rem;
+    display: flex;
+    flex-direction: column;
+    
+}
+#vs {
+    font-size: 3.6rem;
+}
+.score {
+    font-size: 1.9rem;
+    margin: 10px;
 }
 #selection {
-    background-color: yellowgreen;
+    /* background-color: yellowgreen; */
+    justify-content: space-around;
 }
 #new-game {
-    background-color: gold;
+    /* background-color: gold; */
+    margin: 20px;
 }
 
+
+footer {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+
+button {
+  width: 30%;
+  background-color: #fbeee0;
+  border: 2px solid #422800;
+  border-radius: 25px;
+  box-shadow: #422800 4px 4px 0 0;
+  color: #422800;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 600;
+  font-size: 18px;
+  padding: 0 18px;
+  line-height: 50px;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+button:hover {
+  background-color: #fff;
+}
+
+button:active {
+  box-shadow: #422800 2px 2px 0 0;
+  transform: translate(2px, 2px);
+}
+
+@media (min-width: 768px) {
+  button {
+    min-width: 120px;
+    padding: 0 25px;
+  }
+}
 
 
 

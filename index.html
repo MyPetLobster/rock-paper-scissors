@@ -8,38 +8,45 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
+    
     <div id="main-container">
-
         <div id="heading" class="main-item">
-            <h1 class="heading-item">ROCK</h1>
-            <h1 class="heading-item">PAPER</h1>
-            <h1 class="heading-item">SCISSORS</h1>
+            <h1 class="heading-item">&nbsp&nbspROCK&nbsp&nbsp</h1>
+            <h1 class="heading-item">&nbspPAPER&nbsp</h1>
+            <h1 class="heading-item">&nbsp&nbspSCISSORS</h1>
         </div>
 
-        <div id="head-image" class="main-item">
-            <img src="images/left-rock.png" alt="">
-            <img src="images/right-rock.png" alt="">
-        </div>
+        <div id="inner-box">
 
-        <p id="result" class="main-item">Results Go Here</p>
-
-        <div id="scoreboard" class="main-item">
-            <div id="user-score" class="score">
-                USER SCORE HERE
+    
+            <div id="head-image" class="main-item">
+                <img class="img" id="image-left" src="images/left-rock.png" alt="">
+                <img class="img" id="image-right" src="images/right-rock.png" alt="">
             </div>
-            <div id="computer-score" class="score">
-                COMPUTER SCORE HERE
+    
+            <p id="result" class="main-item">YOU WIN!!!</p>
+    
+            <div id="scoreboard" class="main-item">
+                <div id="user-score" class="score">
+                    You:
+                </div>
+                <p id="vs">VS</p>
+                <div id="computer-score" class="score">
+                    Super Computer:
+                </div>
             </div>
+    
+            <div id="selection" class="main-item">
+                <button id="rock-btn" class="rcp-btn">Rock</button>
+                <button id="paper-btn" class="rcp-btn">Paper</button>
+                <button id="scissors-btn" class="rcp-btn">Scissors</button>
+            </div>
+    
+            <button id="new-game" class="main-item">New Game</button>
         </div>
 
-        <div id="selection" class="main-item">
-            <button id="rock-btn" class="rcp-btn">Rock</button>
-            <button id="paper-btn" class="rcp-btn">Paper</button>
-            <button id="scissors-btn" class="rcp-btn">Scissors</button>
-        </div>
+        <footer>This is a footer</footer>
 
-        <button id="new-game" class="main-item">New Game</button>
     </div>
 
     
