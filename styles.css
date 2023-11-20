@@ -99,7 +99,16 @@ h1 {
 #selection {
     /* background-color: yellowgreen; */
     justify-content: space-around;
+    flex-wrap: wrap;
+    
 }
+
+.rps-btn {
+    flex: 0 1 125px;
+    min-width: 125px;
+    margin: 10px;
+}
+
 #new-game {
     /* background-color: gold; */
     margin: 20px;
