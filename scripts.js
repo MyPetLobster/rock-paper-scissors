@@ -1,12 +1,6 @@
 // Array representing the possible choices in Rock, Paper, Scissors
 const rockPaperScissors = ['rock', 'paper', 'scissors'];
 
-// Function to get a random choice for the computer
-function getComputerChoice() {
-    const index = Math.floor(Math.random() * 3);
-    return rockPaperScissors[index];
-}
-
 // Global variable selectors
 const startGame = document.querySelector("#new-game");
 const userScore = document.querySelector("#user-score");
@@ -26,6 +20,12 @@ userScore.appendChild(userScoreText);
 computerScore.appendChild(computerScoreText);
 
 
+
+// Function to get a random choice for the computer
+function getComputerChoice() {
+    const index = Math.floor(Math.random() * 3);
+    return rockPaperScissors[index];
+}
 // Reset Score Function 
 function resetScore() {
     userScoreText.nodeValue = "You: 0";
@@ -36,7 +36,6 @@ function resetHands() {
     leftHand.src = "images/empty-hand.png";
     rightHand.src = "images/empty-hand.png";
 }
-
 // Update Score Function
 function updateScore(x, y) {
     userScoreText.nodeValue = `You: ${x}`;
@@ -61,6 +60,43 @@ function updateHands (x, y) {
     }
 }
 
+function game() {
+    
+}
+
+
+function round() {
+    let userChoice = '';
+
+    // SHOW BUTTON FUNCTION?
+
+    document.querySelector("#rock-btn").onclick = function() {
+        userChoice = 'rock';
+    }
+    document.querySelector("#paper-btn").onclick = function() {
+        userChoice = 'paper';
+    }
+    document.querySelector("#scissors-btn").onclick = function() {
+        userChoice = 'scissors';
+    }
+    let computerSelection = getComputerChoice();
+    if (playerSelection === computerSelection) {
+        // DRAW
+
+    } else if (
+        (playerSelection === "rock" && computerSelection === "scissors") ||
+        (playerSelection === "paper" && computerSelection === "rock") ||
+        (playerSelection === "scissors" && computerSelection === "paper")
+    ) {
+        // PLAYER WINS
+    } else {
+        // COMPUTER WINS
+    }
+}
+
+
+startGame.addEventListener('click', () => round());
+
 
 // TESTS
 window.addEventListener('load', () => updateScore(4, 5));
@@ -74,53 +110,29 @@ window.addEventListener('load', () => resetHands());
 
 
 
-// // Reset Score Function
-// function resetScore() {
-//     userScore.appendChild(userScoreText);
-//     computerScore.appendChild(computerScoreText);
-// }
-
-// // Update Score Function
-// function updateScores(x, y) {
-//     userScoreText.nodeValue = `You: ${x}`;
-//     computerScoreText.nodeValue = `Super Computer: ${y}`;
-// }
 
 
-// const testButton = document.querySelector(".rps-button");
-// testButton.addEventListener("click", updateScores);
-
-
-// // Load Empty Scores on page load
-// window.addEventListener("load", () => {
-//     resetScore();
-// }, {once: true});
-
-
-
-// startGame.addEventListener('click', () => {    
-// });
 
 
 
 
 // Function to play a single round of Rock, Paper, Scissors
-function round() {
-    const playerSelection = getPlayerChoice();
-    const computerSelection = getComputerChoice();
+// function round() {
+//     const playerSelection = getPlayerChoice();
+//     const computerSelection = getComputerChoice();
 
-    if (playerSelection === computerSelection) {
-        return `Draw -- You both threw ${playerSelection}`;
-    } else if (
-        (playerSelection === "rock" && computerSelection === "scissors") ||
-        (playerSelection === "paper" && computerSelection === "rock") ||
-        (playerSelection === "scissors" && computerSelection === "paper")
-    ) {
-        return `You win! ${playerSelection} beats ${computerSelection}.`;
-    } else {
-        return `You lose! ${computerSelection} beats ${playerSelection}`;
-    }
-}
+//     if (playerSelection === computerSelection) {
+//         return `Draw -- You both threw ${playerSelection}`;
+//     } else if (
+//         (playerSelection === "rock" && computerSelection === "scissors") ||
+//         (playerSelection === "paper" && computerSelection === "rock") ||
+//         (playerSelection === "scissors" && computerSelection === "paper")
+//     ) {
+//         return `You win! ${playerSelection} beats ${computerSelection}.`;
+//     } else {
+//         return `You lose! ${computerSelection} beats ${playerSelection}`;
+//     }
+// }
 
 
 
