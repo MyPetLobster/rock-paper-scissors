@@ -7,6 +7,55 @@ function getComputerChoice() {
     return rockPaperScissors[index];
 }
 
+const startGame = document.querySelector("#new-game");
+
+const userScore = document.querySelector("#user-score");
+const computerScore = document.querySelector("#computer-score");
+const userScoreText = document.createTextNode("You: 0");
+const computerScoreText = document.createTextNode("Super Computer: 0");
+
+userScore.appendChild(userScoreText);
+computerScore.appendChild(computerScoreText);
+
+function updateScore(x, y) {
+    userScoreText.nodeValue = `You: ${x}`;
+    computerScoreText.nodeValue = `Super Computer: ${y}`;
+}
+
+window.addEventListener('load', () => updateScore(4, 5));
+
+
+
+// // Reset Score Function
+// function resetScore() {
+//     userScore.appendChild(userScoreText);
+//     computerScore.appendChild(computerScoreText);
+// }
+
+// // Update Score Function
+// function updateScores(x, y) {
+//     userScoreText.nodeValue = `You: ${x}`;
+//     computerScoreText.nodeValue = `Super Computer: ${y}`;
+// }
+
+
+// const testButton = document.querySelector(".rps-button");
+// testButton.addEventListener("click", updateScores);
+
+
+// // Load Empty Scores on page load
+// window.addEventListener("load", () => {
+//     resetScore();
+// }, {once: true});
+
+
+
+// startGame.addEventListener('click', () => {    
+// });
+
+
+
+
 // Function to play a single round of Rock, Paper, Scissors
 function round() {
     const playerSelection = getPlayerChoice();
