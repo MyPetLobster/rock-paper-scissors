@@ -12,15 +12,33 @@ const leftHand = document.querySelector("#image-left");
 const rightHand = document.querySelector("#image-right");
 
 
-const resultText = document.createTextNode("Best of luck...human");
+const resultText = document.createTextNode("");
 const userScoreText = document.createTextNode("You: 0");
 const computerScoreText = document.createTextNode("Super Computer: 0");
 
 let randomIntWin = 0;
 let randomIntLoss = 0;
+let randomIntDraw = 0;
+
+
+
+// TESTING TYPEWRITER EFFECT
+window.addEventListener('load', () => {
+    result.appendChild(resultText);
+    let msg = "Best of luck...human";
+    for (let i = 0; i < msg.length; i++) {
+    setTimeout(() => {
+      resultText.textContent += msg[i];
+    }, i * 90);
+    }
+});
+
+
+
+
 
 // Append default state text nodes
-result.appendChild(resultText);
+// result.appendChild(resultText);
 userScore.appendChild(userScoreText);
 computerScore.appendChild(computerScoreText);
 
@@ -37,8 +55,16 @@ function resetScore() {
     computerCurrentScore = 0;
     updateScore(0,0);
     resetHands();
-    resultText.nodeValue = "I like watching you reset the score out of frustration. Just know, a computer never forgets";
+    resultText.nodeValue = "";
     result.style.fontSize = "12px";
+    let msg = "I like when you reset the score out of frustration. Just know that a computer never forgets ;)";
+    for (let i = 0; i < msg.length; i++) {
+        setTimeout(() => {
+          resultText.textContent += msg[i];
+        }, i * 40);
+    };
+
+    
 }
 // Reset Hands Function
 function resetHands() {
@@ -122,6 +148,21 @@ function randomLose() {
 }
 // Random Draw Response Function
 function randomDraw() {
+    result.style.fontSize = "18px";
+    let responses = [
+        'Another draw, are you broken?',
+        'Draw',
+        'Draw....',
+        'A draw. Let\'s go again.',
+        'Stop copying me. Draw',
+    ];
+    let randomIntDrawNew = Math.floor(Math.random() * 5);
+    if (randomIntDrawNew === randomIntDraw) {
+        return randomDraw();
+    } else {
+        randomIntDraw = randomIntDrawNew;
+        return responses[randomIntDrawNew];
+    }
 
 }
 
@@ -146,7 +187,7 @@ function game(selection) {
 
     if (selection === computerSelection) {
         // DRAW
-        resultText.nodeValue = "DRAW. Not bad."
+        resultText.nodeValue = randomDraw();
     } else if (
         (selection === "rock" && computerSelection === "scissors") ||
         (selection === "paper" && computerSelection === "rock") ||

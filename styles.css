@@ -58,7 +58,7 @@ h1 {
 }
 
 #head-image {
-    background-color: rgb(222, 113, 230);
+    background-color: rgb(245, 165, 251);
     display: flex;
     justify-content: space-between;
     padding: 0px;
@@ -91,8 +91,15 @@ h1 {
     flex-direction: column;
     
 }
+#user-score {
+    color: rgb(167, 239, 100);
+}
+#computer-score {
+    color: rgb(245, 165, 251);
+}
 #vs {
     font-size: 3.6rem;
+    color: rgb(225, 225, 225);
 }
 .score {
     font-size: 1.9rem;
@@ -120,6 +127,7 @@ h1 {
 footer {
     margin-top: 20px;
     margin-bottom: 10px;
+    font-size: 10px;
 }
 
 
