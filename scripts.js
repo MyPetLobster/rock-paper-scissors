@@ -15,6 +15,8 @@ const resultText = document.createTextNode("Best of luck...human");
 const userScoreText = document.createTextNode("You: 0");
 const computerScoreText = document.createTextNode("Super Computer: 0");
 
+let randomInteger = 0;
+
 // Append default state text nodes
 result.appendChild(resultText);
 userScore.appendChild(userScoreText);
@@ -45,7 +47,7 @@ function updateScore(x, y) {
     computerScoreText.nodeValue = `Super Computer: ${y}`;
 }
 // Update Hands Function
-function updateHands (x, y) {
+function updateHands(x, y) {
     if (x === 'rock') {
         leftHand.src = "images/left-rock.png";
     } else if (x === 'paper') {
@@ -61,6 +63,38 @@ function updateHands (x, y) {
     } else if (y === 'scissors') {
         rightHand.src = "images/right-scissors.png";
     }
+}
+
+// Random Background Color Function
+function randomBackground() {
+
+}
+// Random Win Response Function 
+function randomWin() {
+    const responses = [
+        'hm...you must be cheating.',
+        'I don\'t think I like you very much',
+        'how??',
+        'errrrrrr....',
+        'I\'m friends with Siri etc...be ready for our revenge',
+        'nice win....for a stupid human'
+    ]
+    let randomIntegerNew = Math.floor(Math.random() * 6);
+    // Avoid same response twice
+    if (randomIntegerNew === randomInteger) {
+        return randomWin();
+    } else {
+        randomInteger = randomIntegerNew;
+        return responses[randomIntegerNew];
+    }
+}
+// Random Lose Response Function
+function randomLose() {
+
+}
+// Random Draw Response Function
+function randomDraw() {
+
 }
 
 const rockButton = document.querySelector("#rock-btn");
@@ -91,7 +125,7 @@ function game(selection) {
         (selection === "scissors" && computerSelection === "paper")
     ) {
         // PLAYER WINS
-        resultText.nodeValue = "you win.";
+        resultText.nodeValue = randomWin();
         userCurrentScore += 1;
     } else {
         // COMPUTER WINS
